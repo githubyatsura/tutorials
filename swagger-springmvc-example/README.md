@@ -4,8 +4,8 @@ Examples contains:
 
  * an example of a simple RESTful web-service based on the [Spring Web MVC][spring-mvc] framework.
  * a sample of Java Configuration.
- * an example of some kind of integration with Swagger [swagger].
- * examples of Logback [logback], resource bundle and system.properties usage.  
+ * an example of some kind of integration with [Swagger][swagger].
+ * examples of [Logback][logback], resource bundle and system.properties usage.  
 
 [spring-mvc]: http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#mvc
 [spring]: https://projects.spring.io/spring-framework/
