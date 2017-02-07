@@ -27,8 +27,8 @@ public class MyFirstTestIT {
 
     private static final String USERNAME = "admin";
     private static final String PASSWORD = USERNAME;
-    public static final String HOST_NAME = "localhost";
-    public static final int PORT = 8080;
+    private static final String HOST_NAME = "localhost";
+    private static final int PORT = 8080;
     private static final String URL_TEMPLATE = "http://%s:%s/repository/default";
     private static final String NEW_FOLDER_TEMPLATE = "/%s";
 
