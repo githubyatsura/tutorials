@@ -24,7 +24,7 @@ $ mvn clean package
 
 ### How to run
 
-The project use [Jetty Maven Plug-in](https://www.eclipse.org/jetty/documentation/9.4.x/jetty-maven-plugin.html) to automatically install and run example.
+The project uses [Jetty Maven Plug-in](https://www.eclipse.org/jetty/documentation/9.4.x/jetty-maven-plugin.html) to automatically install and run example.
 
 ```bash
 $ mvn jetty:run
