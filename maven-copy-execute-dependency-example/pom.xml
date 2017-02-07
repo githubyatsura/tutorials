@@ -72,9 +72,12 @@
                     <includes>
                         <include>**/*IT.java</include>
                     </includes>
-                    <!--<systemPropertyVariables>
-
-                    </systemPropertyVariables>-->
+                    <properties>
+                        <property>
+                            <name>surefire.testng.verbose</name>
+                            <value>5</value>
+                        </property>
+                    </properties>
                 </configuration>
                 <executions>
                     <execution>
@@ -147,6 +150,14 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -164,6 +175,7 @@
         <slf4j.version>1.7.22</slf4j.version>
         <logback.version>1.1.8</logback.version>
         <testng.version>6.10</testng.version>
+        <java.version>1.8</java.version>
     </properties>
 
 </project>

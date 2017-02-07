@@ -1,15 +1,16 @@
 package com.yakuza.integration.tests;
 
-import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.CredentialsProvider;
-import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.util.EntityUtils;
 import org.apache.jackrabbit.webdav.client.methods.HttpMkcol;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,7 +53,7 @@ public class MyFirstIT {
     }
 
 
-    private HttpClient httpClient;
+    private CloseableHttpClient httpClient;
 
     @BeforeTest
     public void initTest() {
@@ -72,11 +73,15 @@ public class MyFirstIT {
         LOG.debug("New folder URL is [{}].", newFolderURL);
 
         HttpMkcol httpMkcol = new HttpMkcol(URI.create(newFolderURL));
-        HttpResponse httpResponse = httpClient.execute(httpMkcol);
 
-        LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
+        try (CloseableHttpResponse httpResponse = httpClient.execute(httpMkcol)) {
 
-        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_CREATED);
+            LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
+
+            Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_CREATED);
+
+            EntityUtils.consume(httpResponse.getEntity());
+        }
     }
 
     @Test(dependsOnMethods = "testCreateNode")
@@ -86,11 +91,14 @@ public class MyFirstIT {
         LOG.debug("Get folder [{}] by URL.", folderURL);
 
         HttpGet httpGet = new HttpGet(URI.create(folderURL));
-        HttpResponse httpResponse = httpClient.execute(httpGet);
+        try (CloseableHttpResponse httpResponse = httpClient.execute(httpGet)) {
 
-        LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
+            LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
 
-        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
+            Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
+
+            EntityUtils.consume(httpResponse.getEntity());
+        }
     }
 
     @Test(dependsOnMethods = "testGetNode")
@@ -100,11 +108,14 @@ public class MyFirstIT {
         LOG.debug("Target folder URL is [{}].", targetFolderURL);
 
         HttpDelete httpDelete = new HttpDelete(URI.create(targetFolderURL));
-        HttpResponse httpResponse = httpClient.execute(httpDelete);
+        try (CloseableHttpResponse httpResponse = httpClient.execute(httpDelete)) {
 
-        LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
+            LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
 
-        Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_NO_CONTENT);
+            Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_NO_CONTENT);
+
+            EntityUtils.consume(httpResponse.getEntity());
+        }
     }
 
     @AfterTest
