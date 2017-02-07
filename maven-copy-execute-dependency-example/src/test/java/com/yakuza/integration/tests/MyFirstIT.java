@@ -21,9 +21,9 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 import java.net.URI;
 
-public class MyFirstTestIT {
+public class MyFirstIT {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MyFirstTestIT.class);
+    private static final Logger LOG = LoggerFactory.getLogger(MyFirstIT.class);
 
     private static final String USERNAME = "admin";
     private static final String PASSWORD = USERNAME;
