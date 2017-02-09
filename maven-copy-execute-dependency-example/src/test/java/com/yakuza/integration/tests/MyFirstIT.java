@@ -78,7 +78,8 @@ public class MyFirstIT {
 
             LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
 
-            Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_CREATED);
+            Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_CREATED,
+                    "Expected http status code = 201 (which means CREATED)");
 
             EntityUtils.consume(httpResponse.getEntity());
         }
@@ -95,7 +96,8 @@ public class MyFirstIT {
 
             LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
 
-            Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK);
+            Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_OK,
+                    "Expected http status code = 200 (which means OK)");
 
             EntityUtils.consume(httpResponse.getEntity());
         }
@@ -112,7 +114,8 @@ public class MyFirstIT {
 
             LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
 
-            Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_NO_CONTENT);
+            Assert.assertEquals(httpResponse.getStatusLine().getStatusCode(), HttpStatus.SC_NO_CONTENT,
+                    "Expected http status code = 204 (which means NO CONTENT)");
 
             EntityUtils.consume(httpResponse.getEntity());
         }
