@@ -68,11 +68,11 @@ public class MyFirstIT {
 
     @Test()
     public void testCreateNode() throws IOException {
-        String newFolderURL = URL + String.format(NEW_FOLDER_TEMPLATE, FOLDER_NAME);
+        String newNodeURL = URL + String.format(NEW_FOLDER_TEMPLATE, FOLDER_NAME);
 
-        LOG.debug("New folder URL is [{}].", newFolderURL);
+        LOG.debug("New node URL is [{}].", newNodeURL);
 
-        HttpMkcol httpMkcol = new HttpMkcol(URI.create(newFolderURL));
+        HttpMkcol httpMkcol = new HttpMkcol(URI.create(newNodeURL));
 
         try (CloseableHttpResponse httpResponse = httpClient.execute(httpMkcol)) {
 
@@ -87,11 +87,11 @@ public class MyFirstIT {
 
     @Test(dependsOnMethods = "testCreateNode")
     public void testGetNode() throws IOException {
-        String folderURL = URL + String.format(NEW_FOLDER_TEMPLATE, FOLDER_NAME);
+        String nodeURL = URL + String.format(NEW_FOLDER_TEMPLATE, FOLDER_NAME);
 
-        LOG.debug("Get folder [{}] by URL.", folderURL);
+        LOG.debug("Get node [{}] by URL.", nodeURL);
 
-        HttpGet httpGet = new HttpGet(URI.create(folderURL));
+        HttpGet httpGet = new HttpGet(URI.create(nodeURL));
         try (CloseableHttpResponse httpResponse = httpClient.execute(httpGet)) {
 
             LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
@@ -105,11 +105,11 @@ public class MyFirstIT {
 
     @Test(dependsOnMethods = "testGetNode")
     public void testDeleteNode() throws IOException {
-        String targetFolderURL = URL + String.format(NEW_FOLDER_TEMPLATE, FOLDER_NAME);
+        String targetNodeURL = URL + String.format(NEW_FOLDER_TEMPLATE, FOLDER_NAME);
 
-        LOG.debug("Target folder URL is [{}].", targetFolderURL);
+        LOG.debug("Target folder URL is [{}].", targetNodeURL);
 
-        HttpDelete httpDelete = new HttpDelete(URI.create(targetFolderURL));
+        HttpDelete httpDelete = new HttpDelete(URI.create(targetNodeURL));
         try (CloseableHttpResponse httpResponse = httpClient.execute(httpDelete)) {
 
             LOG.debug("Http status is [{}].", httpResponse.getStatusLine());
