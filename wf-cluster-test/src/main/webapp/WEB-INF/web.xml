@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app [
+    <!ELEMENT web-app ((module-name)?|
+                       (((description)*, (display-name)*, (icon)*)|
+                        distributable|context-param|filter|filter-mapping|listener|servlet|servlet-mapping|session-config|
+                        mime-mapping|welcome-file-list|error-page|jsp-config|security-constraint|login-config|security-role|
+                        ((env-entry)*,
+                         (ejb-ref)*,
+                         (ejb-local-ref)*,
+                         ((service-ref)*),
+                         (resource-ref)*,
+                         (resource-env-ref)*,
+                         (message-destination-ref)*,
+                         (persistence-context-ref)*,
+                         (persistence-unit-ref)*,
+                         (post-construct)*,
+                         (pre-destroy)*,
+                         (data-source)*,
+                         (jms-connection-factory)*,
+                         (jms-destination)*,
+                         (mail-session)*,
+                         (connection-factory)*,
+                         (administered-object)*
+                        )|message-destination|locale-encoding-mapping-list
+                       )|deny-uncovered-http-methods|absolute-ordering
+                      )*>
+    <!ATTLIST web-app
+        xmlns:xsi CDATA #REQUIRED
+        id CDATA #REQUIRED
+        xmlns CDATA #REQUIRED
+        xsi:schemaLocation CDATA #REQUIRED
+        version (3.1) #REQUIRED>
+    <!ELEMENT absolute-ordering ((name)* | (others)?)*>
+    <!ELEMENT addressing ((enabled)?, (required)?, (responses)?)>
+    <!ELEMENT administered-object ((description)?, name, (interface-name)?, class-name, resource-adapter, (property)*)>
+    <!ELEMENT async-supported (#PCDATA)>
+    <!ELEMENT auth-constraint (description?, role-name*)>
+    <!ELEMENT auth-method (#PCDATA)>
+    <!ELEMENT buffer (#PCDATA)>
+    <!ELEMENT class-name (#PCDATA)>
+    <!ELEMENT client-id (#PCDATA)>
+    <!ELEMENT comment (#PCDATA)>
+    <!ELEMENT connection-factory ((description)?, name, interface-name, resource-adapter, (max-pool-size)?, (min-pool-size)?, (transaction-support)?, (property)*)>
+    <!ELEMENT context-param ((description)*, param-name, param-value)>
+    <!ELEMENT cookie-config ((name)?, (domain)?, (path)?, (comment)?, (http-only)?, (secure)?, (max-age)?)>
+    <!ELEMENT data-source ((description)?, name, (class-name)?, (server-name)?, (port-number)?, (database-name)?, (url)?, (user)?, (password)?, (property)*, (login-timeout)?, (transactional)?, (isolation-level)?, (initial-pool-size)?, (max-pool-size)?, (min-pool-size)?, (max-idle-time)?, (max-statements)?)>
+    <!ELEMENT database-name (#PCDATA)>
+    <!ELEMENT default-content-type (#PCDATA)>
+    <!ELEMENT deferred-syntax-allowed-as-literal (#PCDATA)>
+    <!ELEMENT deny-uncovered-http-methods EMPTY>
+    <!ELEMENT description (#PCDATA)>
+    <!ELEMENT dispatcher (#PCDATA)>
+    <!ELEMENT display-name (#PCDATA)>
+    <!ELEMENT distributable EMPTY>
+    <!ELEMENT domain (#PCDATA)>
+    <!ELEMENT el-ignored (#PCDATA)>
+    <!ELEMENT ejb-link (#PCDATA)>
+    <!ELEMENT ejb-local-ref ((description)*, ejb-ref-name, (ejb-ref-type)?, (local-home)?, (local)?, (ejb-link)?, (((mapped-name)?, (injection-target)*), (lookup-name)?))>
+    <!ELEMENT ejb-ref ((description)*, ejb-ref-name, (ejb-ref-type)?, (home)?, (remote)?, (ejb-link)?, (((mapped-name)?, (injection-target)*), (lookup-name)?))>
+    <!ELEMENT ejb-ref-name (#PCDATA)>
+    <!ELEMENT ejb-ref-type (#PCDATA)>
+    <!ELEMENT enable-mtom (#PCDATA)>
+    <!ELEMENT enabled (#PCDATA)>
+    <!ELEMENT encoding (#PCDATA)>
+    <!ELEMENT env-entry ((description)*, env-entry-name, (env-entry-type)?, (env-entry-value)?, (((mapped-name)?, (injection-target)*), (lookup-name)?))>
+    <!ELEMENT env-entry-name (#PCDATA)>
+    <!ELEMENT env-entry-type (#PCDATA)>
+    <!ELEMENT env-entry-value (#PCDATA)>
+    <!ELEMENT error-code (#PCDATA)>
+    <!ELEMENT error-on-undeclared-namespace (#PCDATA)>
+    <!ELEMENT error-page ((error-code | exception-type)?, location)>
+    <!ELEMENT exception-type (#PCDATA)>
+    <!ELEMENT extension (#PCDATA)>
+    <!ELEMENT file-size-threshold (#PCDATA)>
+    <!ELEMENT filter (((description)*, (display-name)*, (icon)*), filter-name, (filter-class)?, (async-supported)?, (init-param)*)>
+    <!ELEMENT filter-class (#PCDATA)>
+    <!ELEMENT filter-mapping (filter-name, (url-pattern | servlet-name)+, ((dispatcher)?, (dispatcher)?, (dispatcher)?, (dispatcher)?, (dispatcher)?))>
+    <!ELEMENT filter-name (#PCDATA)>
+    <!ELEMENT from (#PCDATA)>
+    <!ELEMENT form-error-page (#PCDATA)>
+    <!ELEMENT form-login-config (form-login-page, form-error-page)>
+    <!ELEMENT form-login-page (#PCDATA)>
+    <!ELEMENT handler (((description)*, (display-name)*, (icon)*), handler-name, handler-class, (init-param)*, (soap-header)*, (soap-role)*, (port-name)*)>
+    <!ELEMENT handler-chain ((service-name-pattern | port-name-pattern | protocol-bindings)?, (handler)+)>
+    <!ELEMENT handler-chains ((handler-chain)*)>
+    <!ELEMENT handler-class (#PCDATA)>
+    <!ELEMENT handler-name (#PCDATA)>
+    <!ELEMENT home (#PCDATA)>
+    <!ELEMENT http-method (#PCDATA)>
+    <!ELEMENT http-method-omission (#PCDATA)>
+    <!ELEMENT http-only (#PCDATA)>
+    <!ELEMENT host (#PCDATA)>
+    <!ELEMENT icon ((small-icon)?, (large-icon)?)>
+    <!ELEMENT include-coda (#PCDATA)>
+    <!ELEMENT include-prelude (#PCDATA)>
+    <!ELEMENT init-param ((description)*, param-name, param-value)>
+    <!ELEMENT initial-pool-size (#PCDATA)>
+    <!ELEMENT injection-target (injection-target-class, injection-target-name)>
+    <!ELEMENT injection-target-class (#PCDATA)>
+    <!ELEMENT injection-target-name (#PCDATA)>
+    <!ELEMENT interface-name (#PCDATA)>
+    <!ELEMENT jaxrpc-mapping-file (#PCDATA)>
+    <!ELEMENT jms-connection-factory ((description)?, name, (interface-name)?, (class-name)?, (resource-adapter)?, (user)?, (password)?, (client-id)?, (property)*, (transactional)?, (max-pool-size)?, (min-pool-size)?)>
+    <!ELEMENT jms-destination ((description)?, name, interface-name, (class-name)?, (resource-adapter)?, (destination-name)?, (property)*)>
+    <!ELEMENT is-xml (#PCDATA)>
+    <!ELEMENT isolation-level (#PCDATA)>
+    <!ELEMENT jsp-config ((taglib)*, (jsp-property-group)*)>
+    <!ELEMENT jsp-file (#PCDATA)>
+    <!ELEMENT jsp-property-group (((description)*, (display-name)*, (icon)*), (url-pattern)+, (el-ignored)?, (page-encoding)?, (scripting-invalid)?, (is-xml)?, (include-prelude)*, (include-coda)*, (deferred-syntax-allowed-as-literal)?, (trim-directive-whitespaces)?, (default-content-type)?, (buffer)?, (error-on-undeclared-namespace)?)>
+    <!ELEMENT large-icon (#PCDATA)>
+    <!ELEMENT lifecycle-callback-class (#PCDATA)>
+    <!ELEMENT lifecycle-callback-method (#PCDATA)>
+    <!ELEMENT listener (((description)*, (display-name)*, (icon)*), listener-class)>
+    <!ELEMENT listener-class (#PCDATA)>
+    <!ELEMENT load-on-startup (#PCDATA)>
+    <!ELEMENT local (#PCDATA)>
+    <!ELEMENT local-home (#PCDATA)>
+    <!ELEMENT locale (#PCDATA)>
+    <!ELEMENT locale-encoding-mapping (locale, encoding)>
+    <!ELEMENT locale-encoding-mapping-list ((locale-encoding-mapping)+)>
+    <!ELEMENT location (#PCDATA)>
+    <!ELEMENT login-config ((auth-method)?, (realm-name)?, (form-login-config)?)>
+    <!ELEMENT login-timeout (#PCDATA)>
+    <!ELEMENT lookup-name (#PCDATA)>
+    <!ELEMENT mail-session ((description)?, name, (store-protocol)?, (store-protocol-class)?, (transport-protocol)?, (transport-protocol-class)?, (host)?, (user)?, (password)?, (from)?, (property)*)>
+    <!ELEMENT mapped-name (#PCDATA)>
+    <!ELEMENT max-age (#PCDATA)>
+    <!ELEMENT max-file-size (#PCDATA)>
+    <!ELEMENT max-idle-time (#PCDATA)>
+    <!ELEMENT max-pool-size (#PCDATA)>
+    <!ELEMENT max-request-size (#PCDATA)>
+    <!ELEMENT max-statements (#PCDATA)>
+    <!ELEMENT message-destination (((description)*, (display-name)*, (icon)*), message-destination-name, (mapped-name)?, (lookup-name)?)>
+    <!ELEMENT message-destination-link (#PCDATA)>
+    <!ELEMENT message-destination-name (#PCDATA)>
+    <!ELEMENT message-destination-ref ((description)*, message-destination-ref-name, (message-destination-type)?, (message-destination-usage)?, (message-destination-link)?, (((mapped-name)?, (injection-target)*), (lookup-name)?))>
+    <!ELEMENT message-destination-ref-name (#PCDATA)>
+    <!ELEMENT message-destination-type (#PCDATA)>
+    <!ELEMENT message-destination-usage (#PCDATA)>
+    <!ELEMENT mime-mapping (extension, mime-type)>
+    <!ELEMENT mime-type (#PCDATA)>
+    <!ELEMENT min-pool-size (#PCDATA)>
+    <!ELEMENT module-name (#PCDATA)>
+    <!ELEMENT mtom-threshold (#PCDATA)>
+    <!ELEMENT multipart-config ((location)?, (max-file-size)?, (max-request-size)?, (file-size-threshold)?)>
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT others EMPTY>
+    <!ELEMENT page-encoding (#PCDATA)>
+    <!ELEMENT param-name (#PCDATA)>
+    <!ELEMENT param-value (#PCDATA)>
+    <!ELEMENT password (#PCDATA)>
+    <!ELEMENT path (#PCDATA)>
+    <!ELEMENT persistence-context-ref ((description)*, persistence-context-ref-name, (persistence-unit-name)?, (persistence-context-type)?, (persistence-context-synchronization)?, (persistence-property)*, ((mapped-name)?, (injection-target)*))>
+    <!ELEMENT persistence-context-ref-name (#PCDATA)>
+    <!ELEMENT persistence-context-synchronization (#PCDATA)>
+    <!ELEMENT persistence-context-type (#PCDATA)>
+    <!ELEMENT persistence-property (name, value)>
+    <!ELEMENT persistence-unit-name (#PCDATA)>
+    <!ELEMENT persistence-unit-ref ((description)*, persistence-unit-ref-name, (persistence-unit-name)?, ((mapped-name)?, (injection-target)*))>
+    <!ELEMENT persistence-unit-ref-name (#PCDATA)>
+    <!ELEMENT port-component-link (#PCDATA)>
+    <!ELEMENT port-component-ref (service-endpoint-interface, (enable-mtom)?, (mtom-threshold)?, (addressing)?, (respect-binding)?, (port-component-link)?)>
+    <!ELEMENT port-name (#PCDATA)>
+    <!ELEMENT port-name-pattern (#PCDATA)>
+    <!ELEMENT port-number (#PCDATA)>
+    <!ELEMENT post-construct ((lifecycle-callback-class)?, lifecycle-callback-method)>
+    <!ELEMENT pre-destroy ((lifecycle-callback-class)?, lifecycle-callback-method)>
+    <!ELEMENT property (name, value)>
+    <!ELEMENT protocol-bindings (#PCDATA)>
+    <!ELEMENT realm-name (#PCDATA)>
+    <!ELEMENT remote (#PCDATA)>
+    <!ELEMENT required (#PCDATA)>
+    <!ELEMENT res-auth (#PCDATA)>
+    <!ELEMENT res-ref-name (#PCDATA)>
+    <!ELEMENT res-sharing-scope (#PCDATA)>
+    <!ELEMENT res-type (#PCDATA)>
+    <!ELEMENT resource-adapter (#PCDATA)>
+    <!ELEMENT resource-env-ref ((description)*, resource-env-ref-name, (resource-env-ref-type)?, (((mapped-name)?, (injection-target)*), (lookup-name)?))>
+    <!ELEMENT resource-env-ref-name (#PCDATA)>
+    <!ELEMENT resource-env-ref-type (#PCDATA)>
+    <!ELEMENT resource-ref ((description)*, res-ref-name, (res-type)?, (res-auth)?, (res-sharing-scope)?, (((mapped-name)?, (injection-target)*), (lookup-name)?))>
+    <!ELEMENT respect-binding ((enabled)?)>
+    <!ELEMENT responses (#PCDATA)>
+    <!ELEMENT role-link (#PCDATA)>
+    <!ELEMENT role-name (#PCDATA)>
+    <!ELEMENT run-as ((description)*, role-name)>
+    <!ELEMENT scripting-invalid (#PCDATA)>
+    <!ELEMENT secure (#PCDATA)>
+    <!ELEMENT security-constraint ((display-name)*, (web-resource-collection)+, (auth-constraint)?, (user-data-constraint)?)>
+    <!ELEMENT security-role ((description)*, role-name)>
+    <!ELEMENT security-role-ref ((description)*, role-name, (role-link)?)>
+    <!ELEMENT server-name (#PCDATA)>
+    <!ELEMENT service-endpoint-interface (#PCDATA)>
+    <!ELEMENT service-interface (#PCDATA)>
+    <!ELEMENT service-name-pattern (#PCDATA)>
+    <!ELEMENT service-ref (((description)*, (display-name)*, (icon)*), service-ref-name, service-interface, (service-ref-type)?, (wsdl-file)?, (jaxrpc-mapping-file)?, (service-qname)?, (port-component-ref)*, ((handler)* | (handler-chains)?), (((mapped-name)?, (injection-target)*), (lookup-name)?))>
+    <!ELEMENT service-ref-name (#PCDATA)>
+    <!ELEMENT service-ref-type (#PCDATA)>
+    <!ELEMENT service-qname (#PCDATA)>
+    <!ELEMENT servlet (((description)*, (display-name)*, (icon)*), servlet-name, (servlet-class | jsp-file)?, (init-param)*, (load-on-startup)?, (enabled)?, (async-supported)?, (run-as)?, (security-role-ref)*, (multipart-config)?)>
+    <!ELEMENT servlet-class (#PCDATA)>
+    <!ELEMENT servlet-name (#PCDATA)>
+    <!ELEMENT servlet-mapping (servlet-name, (url-pattern)+)>
+    <!ELEMENT session-config ((session-timeout)?, (cookie-config)?, ((tracking-mode)?, (tracking-mode)?, (tracking-mode)?))>
+    <!ELEMENT session-timeout (#PCDATA)>
+    <!ELEMENT small-icon (#PCDATA)>
+    <!ELEMENT soap-header (#PCDATA)>
+    <!ELEMENT soap-role (#PCDATA)>
+    <!ELEMENT store-protocol (#PCDATA)>
+    <!ELEMENT store-protocol-class (#PCDATA)>
+    <!ELEMENT taglib (taglib-uri, taglib-location)>
+    <!ELEMENT taglib-location (#PCDATA)>
+    <!ELEMENT taglib-uri (#PCDATA)>
+    <!ELEMENT tracking-mode (#PCDATA)>
+    <!ELEMENT transaction-support (#PCDATA)>
+    <!ELEMENT transactional (#PCDATA)>
+    <!ELEMENT transport-guarantee (#PCDATA)>
+    <!ELEMENT transport-protocol (#PCDATA)>
+    <!ELEMENT transport-protocol-class (#PCDATA)>
+    <!ELEMENT trim-directive-whitespaces (#PCDATA)>
+    <!ELEMENT url (#PCDATA)>
+    <!ELEMENT url-pattern (#PCDATA)>
+    <!ELEMENT user (#PCDATA)>
+    <!ELEMENT user-data-constraint ((description)*, transport-guarantee)>
+    <!ELEMENT value (#PCDATA)>
+    <!ELEMENT web-resource-collection (web-resource-name, (description)*, (url-pattern)+, ((http-method)+ | (http-method-omission)+)?)>
+    <!ELEMENT web-resource-name (#PCDATA)>
+    <!ELEMENT welcome-file (#PCDATA)>
+    <!ELEMENT welcome-file-list ((welcome-file)+)>
+    <!ELEMENT wsdl-file (#PCDATA)>
+]>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         id="WebApp_UTP"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <!--For session replication-->
+    <distributable/>
+</web-app>
